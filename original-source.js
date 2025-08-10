@@ -27,11 +27,11 @@ let interceptor = function (method, url, async) {
 			let waitTime = 0;
 			const button = document.createElement('button');
             button.textContent = "Download Statements";
-            button.style = "position:absolute; right: 30px; bottom: 30px; font-size:50px; background-color:green; color: white; border-radius: 5px; padding: 30px;"
+            button.style = "position:absolute; right: 30px; bottom: 30px; font-size:50px; background-color:green; color: white; border-radius: 5px; padding: 30px;";
             document.body.appendChild(button);
 			const cancelButton = document.createElement('button');
             cancelButton.textContent = "Cancel";
-            cancelButton.style = "position:absolute; left: 30px; bottom: 30px; font-size:50px; background-color:red; color: white; border-radius: 5px; padding: 30px;"
+            cancelButton.style = "position:absolute; left: 30px; bottom: 30px; font-size:50px; background-color:red; color: white; border-radius: 5px; padding: 30px;";
 			cancelButton.onclick = () => {
 				document.body.removeChild(cancelButton);
 				document.body.removeChild(button);
@@ -66,7 +66,7 @@ let interceptor = function (method, url, async) {
 
 	}
     return oldXHROpen.apply(this, arguments);
-}
+};
 if (window.XMLHttpRequest.prototype.open !== interceptor) {
 	window.XMLHttpRequest.prototype.open = interceptor;
 } else {

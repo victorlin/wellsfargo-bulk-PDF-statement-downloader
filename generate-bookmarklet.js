@@ -3,6 +3,13 @@
 const fs = require('fs');
 
 function minify(code) {
+    // Remove single-line comments
+    // Note: // within quoted strings is ignored since those are valid.
+    code = code.replace(/\/\/(?=(?:[^"']*["'][^"']*["'])*[^"']*$).*$/gm, '');
+
+    // Replace all whitespace with single space
+    code = code.replace(/\s+/g, ' ');
+
     // Remove leading/trailing whitespace
     code = code.trim();
 
